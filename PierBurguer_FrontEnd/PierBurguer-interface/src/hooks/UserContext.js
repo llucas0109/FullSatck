@@ -6,10 +6,10 @@ import PropTypes from 'prop-types'
 
  const UserContext = createContext({}) // createContext({})' Cria Uma Contexto 
 
- export const UserProvider = ({ children }) => {
+ export const UserProvider = ({ children }) => {  // Esta Funçao é responsavel por Guardar os dados e fazer algo
   const [userData, setuserData] = useState({})
   
-  const putUserData = async userInfo => {
+  const putUserData = async userInfo => {  // userInfo esta recebendo o token 
     
     setuserData(userInfo)
     // JSON.stringify(userInfo) Tranforma o objeto em string
@@ -35,21 +35,22 @@ import PropTypes from 'prop-types'
   
 
   return (
+    // Estrutura do que useUser Ira Disponibilizar.
      <UserContext.Provider value={{userData,putUserData,Logout}}>  { /* Adicionando 'user' e 'otheruser' ao contexto*/}
-      {children}
+      {children} {/*Devemos colocar children aqui para funcionar Repita a estrutura vista em todo codigo*/}
     </UserContext.Provider>
   )
   
 }
 
-export const useUser = () => {
+export const useUser = () => {  // Essa funçao é responsavel disponibilizar.
   const context = useContext(UserContext) // 'useContext' Diz onde Esta o contexto E lê O Contexto
   
   if (!context) {
   throw new Error('useUser must be used with UserContext') // throw pausa a execuçao joga pro catch se tiver.
   }
 
-  return context
+  return context   // Contem os dados do return da funçao que guarda.
 }  
 
 UserProvider.propTypes = {  // Configura props

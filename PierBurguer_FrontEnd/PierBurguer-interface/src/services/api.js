@@ -1,4 +1,5 @@
 import axios from "axios"; // Axios serve para acessar o back end e trocar informaçoes.
+// é aqui que cada mudança de pagina ele verifica o token acho
 
 const apiPierBurguer = axios.create({ // cria uma nova instancia de configuraçoes personalizaveis.
   baseURL:'http://localhost:3001'  // url que o axios se conectara 

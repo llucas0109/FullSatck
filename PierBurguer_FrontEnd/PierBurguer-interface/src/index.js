@@ -22,7 +22,7 @@ root.render(
   <React.StrictMode>
     <Global />
     <ToastContainer />
-    <AppProvider> {/*Envelopando os modulos que poderam usar os dados Do context*/}
+    <AppProvider> {/*Devemos de envelopara aquilo que sera usando o context*/}
     {/* <Router>
       <RouterPag />
     </Router> */}

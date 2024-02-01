@@ -23,7 +23,9 @@ import mongoose from 'mongoose';
       models.map( (model) => model.associate && model.associate(this.connection.models) ); // this.connection.models Contem todos os modulos executados previamente 
     }
     mongo(){
-      this.mongoConnection = mongoose.connect('mongodb://localhost:27017/codeburguer',
+      // mongodb://  /    è uma estrutura padrao do mongo para se conectar
+      // Dando o local onde o mongo deve se conectar e o database
+      this.mongoConnection = mongoose.connect('mongodb://34.86.65.154:27017/codeburguer',
       {}
       )
     }

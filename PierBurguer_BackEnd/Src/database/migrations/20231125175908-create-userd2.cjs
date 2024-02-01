@@ -1,6 +1,11 @@
 'use strict';
   // Migrations so cria as tabelas.
   // npx sequelize migration:create --name=create-products
+  // pg_dump -C -h localhost -U postgres fly | psql -h 34.86.65.154 -U postgres fly   . Para enviar dados do postgres aqui ao postgres do docker que esta numa maquina virtual. sem precisar crialas novamente.
+  // O mesmo host que roda a vm roda o docker
+  // docker exec -it 496f034d81d8 /bin/bash   acessa o container e permite usar o shell
+  // Caso voce queira saber se a tabela foi criada no postgres acesse o container com docker exec -it 496f034d81d8 /bin/bash e \dt para mostrar as tabelas.
+
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {

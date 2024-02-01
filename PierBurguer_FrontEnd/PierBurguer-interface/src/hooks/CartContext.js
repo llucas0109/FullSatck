@@ -19,7 +19,7 @@ export const CartProvider = ({ children }) => {
      let newCartProducts = []
     if(cartIndex >= 0){ 
       newCartProducts = cartData
-      newCartProducts[cartIndex].quantity = newCartProducts[cartIndex].quantity + 1 // quantity Acho que é um metodo padrao para saber a quantidade 
+      newCartProducts[cartIndex].quantity = newCartProducts[cartIndex].quantity + 1 
       setCartData(newCartProducts)
 
     }else{

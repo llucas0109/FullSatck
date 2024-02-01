@@ -32,7 +32,7 @@ function Login(){
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm()
+  } = useForm();
 
   const onSubmit = async clientData => {
     
@@ -43,7 +43,7 @@ function Login(){
     },{ validateStatus: () => true }) // 'validateStatus: () => true' PerMite Que caso de erro ele Continue a ler o try
   
     const { data } = response
-    putUserData(data)
+    putUserData(data)  // Passando os dados para o use context que disponibiliza o token no local storege
     const valid = data.admin
     if(valid == true){
       return window.location.href = '/admin';
@@ -67,6 +67,7 @@ function Login(){
           {/*// ...register chama a funçao register e cadastra o campo e ja da um name  */}
           {/*Podemos passar validaçoes no segundo parametro de '...register()' */}
           <Input placeholder="Email" id="email" {...register('email', { required: true })} error={errors.email?.type} />
+          {/*O type do erro é o que definimos no objeto da segunda prop do ...register*/}
           {errors.email && errors.email.type === "required" && <Span>Preencha O Campo De Email</Span>}  {/* Se ouver um erro em : 'errors.email', Ele exibira a mensagem de erro. */}
           <Label>Senha</ Label>
           <Input placeholder="Senha"  id="password" {...register('password', { required: true, maxLength: 15 })} error={errors.password?.type} />
